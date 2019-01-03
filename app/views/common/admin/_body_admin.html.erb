@@ -1,0 +1,60 @@
+<!-- body admin -->
+<div class="container-fluild">
+  <div class="row">
+    <!-- vertical menu left body-->
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <div class="nav-side-menu">
+        <div class="brand"><%= t"common.admin.body.title" %></div>
+        <div class="menu-list">
+            <ul id="menu-content">
+              <li  data-toggle="collapse" data-target="#user" class="collapsed active">
+                <a href="#">
+                  <i class="fa fa-users fa-lg"></i><%= t"common.admin.body.users" %><span class="caret"></span>
+                </a>
+              </li>
+              <ul class="sub-menu collapse" id="user">
+                <li><i class="fa fa-angle-right"></i>
+                  <%=link_to t("common.admin.body.list_user"), "#" %>
+                </li>
+                <li><i class="fa fa-angle-right"></i>
+                  <%=link_to t("common.admin.body.add_user"), "#" %>
+                </li>
+              </ul>
+              <li data-toggle="collapse" data-target="#categories" class="collapsed">
+                <a href="#">
+                  <i class="fa fa-bars"></i><%= t "common.admin.body.cate" %><span class="caret"></span>
+                </a>
+              </li>
+              <ul class="sub-menu collapse" id="categories">
+                <li><i class="fa fa-angle-right"></i><%=link_to t("common.admin.body.list_cate"), "#" %></li>
+                <li><i class="fa fa-angle-right"></i><%=link_to t("common.admin.body.add_cate"), "#" %></li>
+              </ul>
+              <li data-toggle="collapse" data-target="#product" class="collapsed">
+                <a href="#">
+                  <i class="fa fa-mobile"></i> <%= t "common.admin.body.product" %><span class="caret"></span>
+                </a>
+              </li>
+              <ul class="sub-menu collapse" id="product">
+                <li><i class="fa fa-angle-right"></i> <%= link_to t("common.admin.body.list_product"), "#" %></li>
+                <li><i class="fa fa-angle-right"></i> <%= link_to t("common.admin.body.add_product"), "#" %></li>
+              </ul>
+              <li data-toggle="collapse" data-target="#order" class="collapsed">
+                <a href="#">
+                  <i class="fa fa-cart-plus"></i><%= t("common.admin.body.order") %><span class="arrow"></span>
+                </a>
+              </li>
+              <ul class="sub-menu collapse" id="order">
+              </ul>
+            </ul>
+        </div>
+      </div>
+    </div> <!--end vertical menu left body-->
+    <!-- right body -->
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+</div>
