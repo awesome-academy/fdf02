@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-8 center_div">
+    <h1><%= t "admin.orders.show.title" %></h1>
+    <div class="history_wrapper">
+      <div class="history_header">
+        <div class="history_header_product">
+          <%= t "orders.index.product" %>
+        </div>
+        <div class="history_header_quantity">
+          <%= t "orders.index.quantity" %>
+        </div>
+        <div class="history_header_size">
+          <%= t "orders.index.price" %>
+        </div>
+        <div class="history_header_date">
+          <%= t "orders.index.total_item" %>
+        </div>
+      </div>
+      <div class="history_body">
+        <div class="history_list">
+          <% @order.order_details.each do |order_detail| %>
+            <div class="history_item_name">
+             <span class="item_name"> <%= Product.find(order_detail.product_id).name %> </span>
+            </div>
+            <div class="history_item_quantity">
+              <span class="item_quantity">
+                <%= order_detail.quantity %>
+              </span>
+            </div>
+            <div class="history_item_size">
+              <span class="item_size">
+               <%=  order_detail.total_price %>
+              </span>
+            </div>
+            <div class="history_item_size">
+              <span class="item_size">
+                <%=  order_detail.total_price %>
+              </span>
+            </div>
+          <% end %>
+            <div class="history_list_footer">
+              <span class="label label-default"><%= t "orders.index.order" %> <%= @order.id %></span>
+              <% if @order.incoming? %>
+                <span class="label label-info"><%= @order.status %></span>
+              <% elsif @order.in_progress?%>
+                <span class="label label-warning"><%= @order.status %></span>
+              <% elsif @order.finished?%>
+                <span class="label label-success"><%= @order.status %></span>
+              <% end %>
+              <span class="histroy_total"><b><%= t "orders.index.total" %></b><%= @order.total %></span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="space20">&nbsp;</div>

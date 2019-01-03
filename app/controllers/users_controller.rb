@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: [:show, :new, :create]
-  before_action :load_user, except: [:index, :new, :create]
-  before_action :admin_user, only: :destroy
+  load_and_authorize_resource
 
   def new
     @user = User.new
@@ -13,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
     if @user.save
       log_in @user
       flash[:success] = t "controller.users.welcome"
@@ -34,43 +32,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "flash.log_in"
-    redirect_to login_path
-  end
-
-  def destroy
-    if @user.try :destroy
-      flash[:success] = t "flash.destroy"
-      redirect_to users_path
-    else
-      flash[:danger] = t "flash.destroy_fail"
-      redirect_to users_path
-    end
-  end
+  def destroy; end
 
   private
 
   def user_params
     params.require(:user).permit :name, :email, :password, :phone, :address,
       :password_confirmation
-  end
-
-  def correct_user
-    redirect_to(root_path) unless current_user? @user
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-    flash[:danger] = t "flash.not_found"
-    redirect_to root_path
-  end
-
-  # Confirms an admin user.
-  def admin_user
-    redirect_to(root_path) unless current_user.admin?
   end
 end

@@ -1,0 +1,28 @@
+<% provide(:title, t("admin.users.edit.title")) %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 center_div">
+    <h1><%= t"admin.users.edit.title" %></h1>
+    <%= form_for [:admin, @user] do |f| %>
+      <%= render "admin/users/error_messages" %>
+
+      <%= f.label :name, t("admin.users.edit.name")  %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :email, t("admin.users.edit.email") %>
+      <%= f.email_field :email, disabled: true, class: "form-control" %>
+
+      <%= f.label :phone, t("admin.users.edit.phone") %>
+      <%= f.phone_field :phone, disabled: true, class: "form-control" %>
+
+      <%= f.label :address, t("admin.users.edit.address")  %>
+      <%= f.text_field :address, class: "form-control" %>
+
+      <%= f.label :password, t("admin.users.edit.password") %>
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :password_confirmation, t("admin.users.edit.password_confirm") %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
+    <%= f.submit t("admin.users.edit.button"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

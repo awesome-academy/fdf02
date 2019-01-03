@@ -1,0 +1,27 @@
+<div class="container">
+  <div id="content" class="space-top-none">
+    <div class="main-content">
+      <div class="space60">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="beta-products-list">
+            <h3><%= t "products.index.title" %></h3>
+            <div class="row">
+              <div class="col-md-3">
+                <%= render "products/filter" %>
+              </div>
+              <div class="col-md-9">
+                <% if @searchs %>
+                  <%= render "products/product", products: @searchs %>
+                <% else %>
+                  <%= render "products/product", products: @products %>
+                <% end %>
+              </div>
+                <%= will_paginate %>
+            </div>
+          </div> <!-- .beta-products-list -->
+        </div>
+      </div> <!-- end section with sidebar and main content -->
+    </div> <!-- .main-content -->
+  </div> <!-- #content -->
+</div> <!-- .container -->

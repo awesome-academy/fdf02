@@ -5,15 +5,63 @@ en:
   admin:
     categories:
       category:
-        title: "Category"
-      edit:
-        title: "Edit category"
+        edit: "Edit"
+        delete: "Delete"
       index:
-        title: "Index category"
+        title: "List Category"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+      edit:
+        title: "Edit Category"
+        button: "Update Category"
+    users:
+      index:
+        title: "List Users"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+      edit:
+        title: "Edit User"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        password: "Password"
+        password_confirm: "Password Confirmation"
+        address: "Address"
+        role: "Role"
+        admin: "admin"
+        user: "user"
+        button: "Update profile"
       new:
-        title: "New category"
-      error:
-        title: "Errors category"
+        title: "Add User"
+    orders:
+      index:
+        title: "List Orders"
+        id: "Order Id"
+        customer: "Customer"
+        status: "Status"
+        total: "Total"
+        next: "Next"
+        delete: "Delete"
+        action: "Actions"
+      show:
+        title: "Detail Order"
+    products:
+      index:
+        title: "List Products"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+        price: "Price"
+        Image: "Image"
+      edit:
+        title: "Edit Products"
+        name: "Product Name"
+        price: "Price"
+        description: "Description"
+        url: "Url"
+        button: "Update Product"
   layouts:
     footer:
       instagram: "Instagram Feed"
@@ -46,18 +94,47 @@ en:
       drink: "Drink"
       about: "About"
       introduce: "Introduce"
-      contact: "Contact"
+      suggest: "Suggest"
       name: "Sample Woman Top"
       size: "Size:"
       price: "Price:"
-      settings: "Settings"
+      history: "History Orders"
+      suggest: "Suggests"
       log_out: "Log out"
       log_in: "Log in"
   static_pages:
     home:
-      food: "Food"
-      drink: "Drink"
+      cake: "CAKES"
+      coffee: "COFFEES"
+      tea: "TEAS"
       detail: "Details"
+    about:
+      title: "Our History"
+      year_01: "2003"
+      year_02: "2004"
+      year_03: "2005"
+      year_04: "2009"
+      year_05: "2012"
+      year_06: "2015"
+      year_07: "2018"
+      event_01: "Birth"
+      event_02: "Web Design"
+      event_03: "Web Development"
+      address_event_01: "90-92 Lê Thị Riêng, Bến Thành"
+      address_event_02: "Quận 1"
+      address_event_03: "Tp.Hồ Chí Minh"
+      content_event: "Với những nghệ nhân rang tâm huyết và đội ngũ Barista tài năng cùng những câu chuyện cà phê đầy cảm hứng, ngôi nhà Signature 19B Phạm Ngọc Thạch, Q.3, TP.HCM là không gian dành riêng cho những ai trót yêu say đắm hương vị của những hạt cà phê tuyệt hảo"
+      footer_title: "Our Passion for What We Do Transfers Into Our Services"
+      footer_content: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      number_person: "198555"
+      number_images: "3568"
+      number_hours: "258943"
+      number_projects: "140"
+      person: "Clients Satisfied"
+      images: "Amazing Works"
+      hours: "Support Hours"
+      projects: "New Projects"
   session:
     new:
       title: "Log in"
@@ -72,9 +149,35 @@ en:
   flash:
     invalid: "Invalid email/password combination"
     log_in: "Please log in."
-    destroy: "User deleted"
+    destroy: "User was deleted"
     not_found: "not found user!"
     update: "Profile updated"
+    login_success: "Login success.!"
+    welcome: "Welcome.!"
+    update_success: "Update success.!"
+    updated_fail: "Invalid updated.!"
+    destroy_fail: "Invalid delete.!"
+    cate_add_success: "Successfully add category"
+    cate_delete_success: "Successfully delete category"
+    not_found_cate: "not found category!"
+    order_details_success: "Successfully create"
+    order_details_fail: "Please login to orders"
+    order_notfound: "Not found order."
+    cart_notfound: "Not found carts."
+    cart_add_item: "Successfully add to Cart."
+    suggest_notfound: "Not found your suggest."
+    order_delete_success: "Successfully delete order"
+    suggest_success: "Successfully create your suggest."
+    suggest_fail: "Please login to suggest"
+    suggest_delete_success: "Successfully delete suggest"
+    suggest_delete_fail: "The suggest was done. You cant delete it."
+    order_cancel_success: "Successfully cancel your order."
+    order_cancel_fail_1: "Your order was in_progressing. Please call number--xxxx-- to cancel your order."
+    order_cancel_fail_2: "Your order was finished. You cant cancel it."
+    product_delete_fail: "Product is in Cart of customer. You cant delete or update."
+    product_delete_success: "Successfully delete product"
+    cate_delete_fail: "Category include product of customer order."
+    user_delete_fail: "You cant delete Admin."
   controller:
     users:
       welcome: "Welcome"
@@ -84,11 +187,34 @@ en:
       contains: "The form contains "
       errors: " error"
   users:
-     edit:
+    edit:
       title: "Edit user"
       introduce: "Update your profile"
       confirm: "Confirmation"
       save: "Save changes"
+    show:
+      title: "Welcome"
+      email: "Email:"
+      phone: "Phone:"
+      address: "Home Address:"
+      time: "Time register:"
+    sign_up:
+      title: "Sign Up"
+  products:
+    index:
+      title: "Products List"
+    show:
+      description: "Description"
+      one: "1"
+      review: "No Review"
+    filter:
+      title: "Search Filter"
+      category: "Category"
+      cake: "Cakes"
+      coffee: "Coffees"
+      tea: "Teas"
+      min_price: "Min Price"
+      max_price: "Max Price"
   common:
     admin:
       body:
@@ -108,3 +234,58 @@ en:
         user: "Admin"
         edit: "Edit"
         log_out: "Log out"
+        admin: "Admin"
+  orders:
+    index:
+      title: "History Orders"
+      product: "Product_name"
+      quantity: "Quantity"
+      price: "Price"
+      total_item: "Total_item"
+      total: "Total: "
+      order: "Order: "
+      cancel: "Cancel"
+      confirm: "Are you sure cancel it."
+  carts:
+    index:
+      title: "Shopping Carts"
+      product: "Product"
+      price: "Price"
+      quantity: "Quantity"
+      subtotal: "Subtotal"
+      continue: "Continue Shopping"
+      total: "Total:"
+      checkout: "Checkout"
+      next: "Next"
+      cancel: "Cancel"
+    checkout:
+      order: "Order"
+      order_detail: "Your Orders"
+      total: "Total: "
+      payment: "Payments"
+      method: "Payment on delivery"
+      delivery: "Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng"
+  suggests:
+    show:
+      title: "List Suggests"
+      stt: "STT"
+      content: "Content"
+      suggest: "Suggest: "
+      status: "Status:"
+      action: "Action"
+      confirm: "Do you want remove it.?"
+    index:
+      title: "Suggest Form"
+      content: "Make suggestions about the store as well as ideas to improve the quality of services and products."
+      button: "Send Suggests"
+      contact: "Contact Information"
+      address: "Address"
+      business: "Business Enquiries"
+      business_content: "The best business man."
+      business_mail: "mymail@gmail.com"
+      employment: "Employment"
+      employment_contect: "We’re always looking for talented persons to join our team."
+      employment_mail: "hr@betadesign.com"
+  user_mailer:
+    hi: "Hi, "
+    content: "Your order is success. We will immediately delivery for you. "

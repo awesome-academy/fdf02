@@ -1,0 +1,26 @@
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <div id="carousel-id" class="carousel slide" data-ride="carousel" data-interval="1000">
+          <ol class="carousel-indicators" style="z-index: 1">
+            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="2" class=""></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+              <%= image_tag "coffee-slide.jpg", alt: "slide_1", :class => "slide_product" %>
+            </div>
+            <div class="item">
+              <%= image_tag "coffee-slide.jpg", alt: "slide_2", :class => "slide_product" %>
+            </div>
+            <div class="item">
+              <%= image_tag "coffee-slide.jpg", alt: "slide_3", :class => "slide_product" %>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+          <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+      </div>
+    </div>
+  <!-- end slide -->
+

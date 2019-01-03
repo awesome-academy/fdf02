@@ -3,9 +3,11 @@ source "https://rubygems.org"
 gem "bcrypt", "3.1.12"
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-will_paginate", "1.0.0"
+gem "cancancan"
 gem "carrierwave", "1.2.2"
 gem "coffee-rails", "4.2.2"
 gem "config"
+gem "devise"
 gem "faker", "1.7.3"
 gem "figaro"
 gem "font-awesome-rails"
@@ -15,6 +17,8 @@ gem "mini_magick", "4.7.0"
 
 group :development, :test do
   gem "byebug", "9.0.6", platform: :mri
+  gem "factory_bot_rails"
+  gem "rspec-rails"
   gem "sqlite3", "1.3.13"
 end
 
@@ -30,6 +34,7 @@ group :test do
   gem "guard-minitest", "2.4.4"
   gem "minitest", "5.10.3"
   gem "minitest-reporters", "1.1.14"
+  gem "shoulda-matchers", "4.0.0.rc1"
   gem "rails-controller-testing", "1.0.2"
 end
 
@@ -41,6 +46,7 @@ end
 gem "puma", "3.9.1"
 gem "rails", "5.1.6"
 gem "rake", "12.3.1"
+gem "ransack"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "5.0.6"
 gem "turbolinks", "5.0.1"

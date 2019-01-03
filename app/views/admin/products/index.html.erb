@@ -1,0 +1,17 @@
+<% provide(:title, t("admin.products.index.title")) %>
+<h1><%= t "admin.products.index.title" %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "admin.products.index.name" %></th>
+      <th scope="col"><%= t "admin.products.index.price" %></th>
+      <th scope="col"><%= t "admin.products.index.image" %></th>
+      <th scope="col"><%= t "admin.products.index.edit" %></th>
+      <th scope="col"><%= t "admin.products.index.delete" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @products %>
+  </tbody>
+</table>
+<%= will_paginate %>

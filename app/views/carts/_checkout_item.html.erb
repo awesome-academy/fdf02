@@ -1,0 +1,12 @@
+<% cart_products.each do |cart_product|  %>
+<div class="media">
+  <%= image_tag cart_product.images[0].picture, alt: cart_product.name, :class => "img-responsive image_in_carts pull-left" %>
+  <div class="media-body">
+    <p class="font-large"><%= cart_product.name %></p>
+    <span class="color-gray your-order-info">Price: <%= cart_product.price %></span>
+    <span class="color-gray your-order-info">Qty: <%= session[:cart][cart_product.id.to_s] %></span>
+    <span class="color-gray your-order-info">Subtotal: <%= cart_product.price * session[:cart][cart_product.id.to_s]%>
+    </span>
+  </div>
+</div>
+<% end %>

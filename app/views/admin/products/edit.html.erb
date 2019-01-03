@@ -1,0 +1,27 @@
+<% provide(:title, t("admin.products.edit.title")) %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 center_div">
+    <h1><%= t"admin.products.edit.title" %></h1>
+
+    <%= form_for([:admin, @product], html: {multipart: true})  do |f| %>
+      <%= render "error_messages" %>
+
+      <%= f.label :name, t("admin.products.edit.name")  %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :price, t("admin.products.edit.price") %>
+      <%= f.text_field :price, class: "form-control" %>
+
+      <%= f.label :description, t("admin.products.edit.description") %>
+      <%= f.text_field :description, class: "form-control" %>
+
+      <%= f.label :images, t("admin.products.edit.url") %>
+      <%= f.fields_for :images do |p| %>
+      <div class="field">
+        <%= p.file_field :picture, class: "form-control" %>
+      </div>
+      <% end %>
+      <%= f.submit t("admin.products.edit.button"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :validatable
+
   enum role: {user: 0, admin: 1}
   has_many :suggests, dependent: :destroy
   has_many :products, dependent: :destroy
@@ -14,32 +19,33 @@ class User < ApplicationRecord
     length: {maximum: Settings[:users][:email][:max_length]},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
-  has_secure_password
   validates :password, presence: true,
     length: {minimum: Settings[:users][:password][:min_length]}
-  validates :phone, presence: true
+  validates :phone, presence: true,
+    length: {
+        minimum: Settings.users.phone.min_length,
+        maximum: Settings.users.phone.max_length
+      }, numericality: true
 
-  def forget
-    update_attribute :remember_digest, nil
-  end
+  scope :order_by_name, ->{order name: :ASC}
 
-  def authenticated? attribute, token
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
-  end
+  # def self.digest string
+  #   cost =
+  #     if ActiveModel::SecurePassword.min_cost
+  #       BCrypt::Engine::MIN_COST
+  #     else
+  #       BCrypt::Engine.cost
+  #     end
+  #   BCrypt::Password.create(string, cost: cost)
+  # end
+
+  # def authenticated? attribute, token
+  #   digest = digest("#{attribute}_digest")
+  #   return false if digest.nil?
+  #   BCrypt::Password.new(digest).is_password?(token)
+  # end
 
   def downcase_email
-    email.downcase!
-  end
-
-  def self.digest string
-    cost =
-      if ActiveModel::SecurePassword.min_cost
-        BCrypt::Engine::MIN_COST
-      else
-        BCrypt::Engine.cost
-      end
-    BCrypt::Password.create(string, cost: cost)
+    email.downcase! if attribute_present? "email"
   end
 end

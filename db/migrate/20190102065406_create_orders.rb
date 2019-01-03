@@ -5,7 +5,8 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.string :customer_name
       t.string :customer_address
       t.string :customer_phone
-      t.string :status
+      t.decimal :total, default: 0
+      t.integer :status, null: false, default: 0
       t.timestamps
     end
   end
