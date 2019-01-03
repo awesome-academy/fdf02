@@ -5,15 +5,60 @@ en:
   admin:
     categories:
       category:
-        title: "Category"
-      edit:
-        title: "Edit category"
+        edit: "Edit"
+        delete: "Delete"
       index:
-        title: "Index category"
+        title: "List Category"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+      edit:
+        title: "Edit Category"
+        button: "Update Category"
+    users:
+      index:
+        title: "List Users"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+      edit:
+        title: "Edit User"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        password: "Password"
+        password_confirm: "Password Confirmation"
+        address: "Address"
+        role: "Role"
+        admin: "admin"
+        user: "user"
+        button: "Update profile"
       new:
-        title: "New category"
-      error:
-        title: "Errors category"
+        title: "Add User"
+    orders:
+      index:
+        title: "List Orders"
+        id: "Order Id"
+        customer: "Customer"
+        status: "Status"
+        total: "Total"
+        next: "Next"
+        delete: "Delete"
+    products:
+      index:
+        title: "List Products"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+        price: "Price"
+        Image: "Image"
+      edit:
+        title: "Edit Products"
+        name: "Product Name"
+        price: "Price"
+        description: "Description"
+        url: "Url"
+        button: "Update Product"
   layouts:
     footer:
       instagram: "Instagram Feed"
@@ -50,13 +95,15 @@ en:
       name: "Sample Woman Top"
       size: "Size:"
       price: "Price:"
-      settings: "Settings"
+      history: "History Orders"
+      suggest: "Suggests"
       log_out: "Log out"
       log_in: "Log in"
   static_pages:
     home:
-      food: "Food"
-      drink: "Drink"
+      cake: "CAKES"
+      coffee: "COFFEES"
+      tea: "TEAS"
       detail: "Details"
   session:
     new:
@@ -72,9 +119,25 @@ en:
   flash:
     invalid: "Invalid email/password combination"
     log_in: "Please log in."
-    destroy: "User deleted"
+    destroy: "User was deleted"
     not_found: "not found user!"
     update: "Profile updated"
+    login_success: "Login success.!"
+    welcome: "Welcome.!"
+    update_success: "Update success.!"
+    updated_fail: "Invalid updated.!"
+    destroy_fail: "Invalid delete.!"
+    cate_add_success: "Successfully add category"
+    cate_delete_success: "Successfully delete category"
+    not_found_cate: "not found category!"
+    order_details_success: "Successfully create"
+    order_details_fail: "Please login to orders"
+    order_notfound: "Not found order."
+    cart_notfound: "Not found carts."
+    cart_add_item: "Successfully add to Cart."
+    suggest_notfound: "Not found your suggest."
+    order_delete_success: "Successfully delete order"
+
   controller:
     users:
       welcome: "Welcome"
@@ -84,11 +147,17 @@ en:
       contains: "The form contains "
       errors: " error"
   users:
-     edit:
+    edit:
       title: "Edit user"
       introduce: "Update your profile"
       confirm: "Confirmation"
       save: "Save changes"
+    show:
+      title: "Welcome"
+      email: "Email:"
+      phone: "Phone:"
+      address: "Home Address:"
+      time: "Time register:"
   common:
     admin:
       body:
@@ -108,3 +177,29 @@ en:
         user: "Admin"
         edit: "Edit"
         log_out: "Log out"
+  orders:
+    index:
+      title: "History Orders"
+      product: "Product_name"
+      quantity: "Quantity"
+      price: "Price"
+      total_item: "Total_item"
+      total: "Total: "
+      order: "Order: "
+  carts:
+    index:
+      title: "Shopping Carts"
+      product: "Product"
+      price: "Price"
+      quantity: "Quantity"
+      subtotal: "Subtotal"
+      continue: "Continue Shopping"
+      total: "Total:"
+      checkout: "Checkout"
+  suggests:
+    index:
+      title: "List Suggests"
+      stt: "STT"
+      content: "Content"
+      suggest: "Suggest: "
+      status: "Status:"

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="history_wrapper">
+      <div class="history_header">
+        <div class="history_header_product">
+          <%= t "suggests.index.stt" %>
+        </div>
+        <div class="history_header_quantity">
+          <%= t "suggests.index.content" %>
+        </div>
+      </div>
+      <div class="history_body">
+        <div class="history_list">
+         <div class="history_item_name">
+           <span class="item_name"> <%= suggest.id%> </span>
+         </div>
+         <div class="history_item_quantity">
+
+          <span class="item_quantity">
+            <%= suggest.content %>
+          </span>
+
+        </div>
+      </div>
+      <div class="history_list_footer">
+       <span class="label label-info"><%= t "suggests.index.status" %> <%= suggest.status %></span>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+<div class="space20">&nbsp;</div>

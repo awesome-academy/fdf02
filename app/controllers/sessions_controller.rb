@@ -3,17 +3,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by email: params[:session][:email].downcase
-    if user &.authenticate(params[:session][:password])
-      log_in user
-      redirect_to user
-    else
-      flash.now[:danger] = t "flash.invalid"
-      render :new
-    end
+    check_login user, params
   end
 
   def destroy
-    log_out if logged_in?
+    if logged_in?
+      log_out
+      session.delete(:cart)
+    end
     redirect_to root_path
   end
 end

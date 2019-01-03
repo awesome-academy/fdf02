@@ -1,1 +1,8 @@
-<h4><%= t "admin.categories.category.title" %><h4>
+<tr>
+  <th scope="row"><%= category.name %></th>
+  <td><i class="fa fa-edit"></i><%= link_to t("admin.categories.category.edit"), edit_admin_category_path(category) %></td>
+  <td><i class="fa fa-window-close"></i>
+    <%= link_to t("admin.categories.category.delete"), [:admin, category], method: :DELETE,
+      data: { confirm: t("admin.users.index.delete") } %>
+  </td>
+</tr>

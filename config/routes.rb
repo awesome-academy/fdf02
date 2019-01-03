@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    root "static_pages#home"
+    root "products#index"
+    resources :products
     get "/home" , to: "static_pages#home"
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
@@ -9,9 +10,24 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users
     namespace :admin do
-      root to: "categories#index"
+      root to: "users#index"
+      get "/listcates" , to: "categories#index"
+      get "/listproducts" , to: "products#index"
+      get "/listorders" , to: "orders#index"
+      resources :orders
       resources :categories
+      resources :users
+      resources :products
     end
+    resources :carts
+    get "/carts_show", to: "carts#show"
+    get "/orders_show", to: "orders#show"
+    get "/suggests_show", to: "suggests#show"
+    delete "/destroy_cart", to: "carts#destroy"
+    delete "/cart_delete_item", to: "carts#cart_delete_item"
+    put "/carts_update", to: "carts#cart_update_item"
+    resources :order_details
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= User.find_by(id: order.user_id).name %></td>
+  <td><span class="label label-success"><%= order.status %></span></td>
+  <td><b><%= order.total %></b></td>
+  <td><i class="fa fa-window-close"></i>
+    <%= link_to t("admin.orders.index.delete"), [:admin, order], method: :DELETE,
+      data: { confirm: t("admin.users.index.delete") } %>
+  </td>
+</tr>

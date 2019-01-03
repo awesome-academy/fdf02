@@ -1,0 +1,35 @@
+<%= render "layouts/slide" %>
+<div class="container">
+  <div id="content" class="space-top-none">
+    <div class="main-content">
+      <div class="space60">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="beta-products-list">
+            <h3><%= t "static_pages.home.tea" %></h3>
+            <div class="row">
+              <%= render partial: "product", collection: @teas %>
+            </div>
+            <%= will_paginate %>
+          </div> <!-- .beta-products-list -->
+          <div class="space50">&nbsp;</div>
+           <div class="beta-products-list">
+            <h3><%= t "static_pages.home.coffee" %></h3>
+            <div class="row">
+              <%= render partial: "product", collection: @coffees %>
+            </div>
+            <%= will_paginate %>
+          </div> <!-- .beta-products-list -->
+           <div class="space50">&nbsp;</div>
+           <div class="beta-products-list">
+            <h3><%= t "static_pages.home.cake" %></h3>
+            <div class="row">
+              <%= render partial: "product", collection: @cakes %>
+            </div>
+            <%= will_paginate %>
+          </div> <!-- .beta-products-list -->
+        </div>
+      </div> <!-- end section with sidebar and main content -->
+    </div> <!-- .main-content -->
+  </div> <!-- #content -->
+</div> <!-- .container -->

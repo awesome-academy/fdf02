@@ -1,1 +1,38 @@
-<%= @user.name %>, <%= @user.email %>
+<% provide :title, t("users.show.title") %>
+<h1><%= t "users.show.title" %></h1>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title center"><%= @user.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 " align="center">
+        <%= gravatar_for @user, size: Settings.gravatar.default_size %>
+      </div>
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td><%= t "users.show.email" %></td>
+              <td><%=link_to @user.email %></td>
+            </tr>
+            <tr>
+              <td><%= t "users.show.phone" %></td>
+              <td><%= @user.phone %></td>
+            </tr>
+            <tr>
+              <td><%= t "users.show.address" %></td>
+              <td><%= @user.address %></td>
+            </tr>
+            <tr>
+              <td><%= t "users.show.time" %></td>
+              <td><%= @user.created_at %></td>
+            </tr>
+
+        </tbody>
+      </table>
+      <a href= <%= edit_user_path(current_user) %> class="btn btn-primary"><%= t "users.edit.introduce" %></a>
+    </div>
+  </div>
+</div>
+</div>

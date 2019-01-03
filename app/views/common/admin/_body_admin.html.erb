@@ -14,10 +14,10 @@
               </li>
               <ul class="sub-menu collapse" id="user">
                 <li><i class="fa fa-angle-right"></i>
-                  <%=link_to t("common.admin.body.list_user"), "#" %>
+                  <%=link_to t("common.admin.body.list_user") , admin_root_path %>
                 </li>
                 <li><i class="fa fa-angle-right"></i>
-                  <%=link_to t("common.admin.body.add_user"), "#" %>
+                  <%=link_to t("common.admin.body.add_user"), new_admin_user_path %>
                 </li>
               </ul>
               <li data-toggle="collapse" data-target="#categories" class="collapsed">
@@ -26,34 +26,32 @@
                 </a>
               </li>
               <ul class="sub-menu collapse" id="categories">
-                <li><i class="fa fa-angle-right"></i><%=link_to t("common.admin.body.list_cate"), "#" %></li>
+                <li><i class="fa fa-angle-right"></i><%=link_to t("common.admin.body.list_cate"), admin_listcates_path %></li>
                 <li><i class="fa fa-angle-right"></i><%=link_to t("common.admin.body.add_cate"), "#" %></li>
               </ul>
               <li data-toggle="collapse" data-target="#product" class="collapsed">
                 <a href="#">
-                  <i class="fa fa-mobile"></i> <%= t "common.admin.body.product" %><span class="caret"></span>
+                  <i class="fa fa-gift"></i> <%= t "common.admin.body.product" %><span class="caret"></span>
                 </a>
               </li>
               <ul class="sub-menu collapse" id="product">
-                <li><i class="fa fa-angle-right"></i> <%= link_to t("common.admin.body.list_product"), "#" %></li>
+                <li><i class="fa fa-angle-right"></i> <%= link_to t("common.admin.body.list_product"), admin_listproducts_path %></li>
                 <li><i class="fa fa-angle-right"></i> <%= link_to t("common.admin.body.add_product"), "#" %></li>
               </ul>
               <li data-toggle="collapse" data-target="#order" class="collapsed">
-                <a href="#">
+                <a href=<%= admin_listorders_path %>>
                   <i class="fa fa-cart-plus"></i><%= t("common.admin.body.order") %><span class="arrow"></span>
                 </a>
               </li>
-              <ul class="sub-menu collapse" id="order">
-              </ul>
             </ul>
         </div>
       </div>
     </div> <!--end vertical menu left body-->
     <!-- right body -->
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+       <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
       <%= yield %>
     </div>
   </div>

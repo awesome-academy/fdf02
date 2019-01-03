@@ -1,0 +1,16 @@
+<% provide(:title, t("admin.users.index.title")) %>
+<h1><%= t "admin.users.index.title" %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "admin.users.index.name" %></th>
+      <th scope="col"><%= t "admin.users.index.edit" %></th>
+      <th scope="col"><%= t "admin.users.index.delete" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+<%= will_paginate %>

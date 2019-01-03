@@ -1,7 +1,59 @@
 class Admin::CategoriesController < ApplicationController
   layout "admin"
 
-  def index; end
+  before_action :load_category, except: [:index, :new, :create]
+
+  def index
+    @categories = Category.order_by_name.paginate page: params[:page],
+      per_page: Settings.cates.paginate.per_page
+  end
 
   def show; end
+
+  def new
+    @category = Category.new
+  end
+
+  def edit; end
+
+  def create
+    @category = Category.new category_params
+    if @category.save
+      flash[:success] = t "flash.cate_add_success"
+      redirect_to admin_listcates_path
+    else
+      render :new
+    end
+  end
+
+  def update
+    if @category.update_attributes cate_params
+      flash[:success] = t "flash.update_success"
+    else
+      flash[:danger] = t "flash.updated_fail"
+    end
+    redirect_to admin_listcates_path
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t "flash.cate_delete_success"
+    else
+      flash[:danger] = t "flash.destroy_fail"
+    end
+    redirect_to admin_listcates_path
+  end
+
+  private
+
+  def load_category
+    @category = Category.find_by id: params[:id]
+    return if @category
+    flash[:danger] = t "flash.not_found_cate"
+    redirect_to admin_listcates_path
+  end
+
+  def category_params
+    params.require(:category).permit :name
+  end
 end
