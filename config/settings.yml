@@ -8,3 +8,11 @@ users:
     max_length: 255
   password:
     min_length: 6
+  paginate:
+    per_page: 30
+cates:
+  paginate:
+    per_page: 20
+products:
+  paginate:
+    per_page: 20

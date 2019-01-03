@@ -5,15 +5,51 @@ en:
   admin:
     categories:
       category:
-        title: "Category"
-      edit:
-        title: "Edit category"
+        edit: "Edit"
+        delete: "Delete"
       index:
-        title: "Index category"
+        title: "List Category"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+      edit:
+        title: "Edit Category"
+        button: "Update Category"
+    users:
+      index:
+        title: "List Users"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+      edit:
+        title: "Edit User"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        password: "Password"
+        password_confirm: "Password Confirmation"
+        address: "Address"
+        role: "Role"
+        admin: "Admin"
+        user: "User"
+        button: "Update profile"
       new:
-        title: "New category"
-      error:
-        title: "Errors category"
+        title: "Add User"
+    products:
+      index:
+        title: "List Products"
+        delete: "delete"
+        name: "Name"
+        edit: "Edit"
+        price: "Price"
+        Image: "Image"
+      edit:
+        title: "Edit Products"
+        name: "Product Name"
+        price: "Price"
+        description: "Description"
+        url: "Url"
+        button: "Update Product"
   layouts:
     footer:
       instagram: "Instagram Feed"
@@ -72,9 +108,17 @@ en:
   flash:
     invalid: "Invalid email/password combination"
     log_in: "Please log in."
-    destroy: "User deleted"
+    destroy: "User was deleted"
     not_found: "not found user!"
     update: "Profile updated"
+    login_success: "Login success.!"
+    welcome: "Welcome.!"
+    update_success: "Update success.!"
+    updated_fail: "Invalid updated.!"
+    destroy_fail: "Invalid delete.!"
+    cate_add_success: "Successfully add category"
+    cate_delete_success: "Successfully delete category"
+    not_found_cate: "not found category!"
   controller:
     users:
       welcome: "Welcome"
