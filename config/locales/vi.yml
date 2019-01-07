@@ -1,3 +1,54 @@
 vi:
   main:
     title: "Chào mừng bạn đến quán cà phê"
+  layouts:
+    footer:
+      instagram: "Instagram Feed"
+      information: "Thông tin"
+      web_design: "Thiết kế web"
+      web_development: "Phát triển web"
+      marketing: "Tiếp thị"
+      tips: "Lời khuyên"
+      resources: "Tài nguyên"
+      illustrations: "Minh họa"
+      contact: "Liên hệ chúng tôi"
+      address: "30 South Park Avenue San Francisco, CA 94108 Phone: +78 123 456 78"
+      content: "Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione."
+      newsletter: "Bản tin Đăng ký"
+      subscribe: "Theo dõi"
+      privacy: "Chính sách bảo mật 2014"
+    header:
+      address: "90-92 Lê Thị Riêng, Bến Thành, Quận 1"
+      phone: "0163 296 xxx"
+      profile: "Hồ sơ"
+      sign_up: "Đăng ký"
+      sign_in: "Đăng nhập"
+      cart: "Giỏ hàng"
+      total: "Tổng tiền:  "
+      order: "Đặt hàng"
+      menu: "Menu"
+      home: "Trang chủ"
+      product: "Sản phẩm"
+      food: "Đồ ăn"
+      drink: "Đồ uống"
+      about: "Về chúng tôi"
+      introduce: "Giới thiệu"
+      contact: "Liên hệ"
+  static_pages:
+    home:
+      food: "Đồ ăn"
+      drink: "Đồ uống"
+      detail: "Chi tiết"
+  session:
+    new:
+      title: "Đăng nhập"
+      sign_up: "Dăng kí ngay"
+      new_user: "Người dùng mới?"
+      remember: "Ghi nhớ tôi trên máy tính này"
+      forgot: "(Quên mật khẩu)"
+  helper:
+    session:
+      message1: "Tài khoản chưa được kích hoạt."
+      message2: "Kiểm tra email của bạn cho các liên kết kích hoạt."
+  flash:
+    invalid: "Liên kết kích hoạt không hợp lệ"

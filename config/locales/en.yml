@@ -1,34 +1,58 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   main:
     title: "Welcome to Coffee House"
+  layouts:
+    footer:
+      instagram: "Instagram Feed"
+      information: "Information"
+      web_design: "Web Design"
+      web_development: "Web development"
+      marketing: "Marketing"
+      tips: "Tips"
+      resources: "Resources"
+      illustrations: "Illustrations"
+      contact: "Contact Us"
+      address: "30 South Park Avenue San Francisco, CA 94108 Phone: +78 123 456 78"
+      content: "Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione."
+      newsletter: "Newsletter Subscribe"
+      subscribe: "Subscribe"
+      privacy: "Privacy policy 2014"
+    header:
+      address: "90-92 Lê Thị Riêng, Bến Thành, Quận 1"
+      phone: "0163 296 xxx"
+      profile: "Profile"
+      sign_up: "Sign Up"
+      sign_in: "Sign In"
+      cart: "Cart"
+      total: "Total Price: "
+      order: "Order"
+      menu: "Menu"
+      home: "Home"
+      product: "Products"
+      food: "Food"
+      drink: "Drink"
+      about: "About"
+      introduce: "Introduce"
+      contact: "Contact"
+  static_pages:
+    home:
+      food: "Food"
+      drink: "Drink"
+      detail: "Details"
+  session:
+    new:
+      title: "Log in"
+      sign_up: "Sign up now!"
+      new_user: "New user?"
+      remember: "Remember me on this computer"
+      forgot: "(forgot password)"
+  helper:
+    session:
+      message1: "Account not activated."
+      message2: "Check your email for the activation link."
+  flash:
+    invalid: "Invalid activation link"
+  controller:
+    users:
+      welcome: "Welcome"
+      empty: "Empty"
