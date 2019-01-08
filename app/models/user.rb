@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  before_save   :downcase_email
+  before_save :downcase_email
 
   validates :name, presence: true,
     length: {maximum: Settings[:users][:name][:max_length]}

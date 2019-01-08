@@ -1,6 +1,19 @@
 en:
   main:
     title: "Welcome to Coffee House"
+    base_title: "Food & Drink"
+  admin:
+    categories:
+      category:
+        title: "Category"
+      edit:
+        title: "Edit category"
+      index:
+        title: "Index category"
+      new:
+        title: "New category"
+      error:
+        title: "Errors category"
   layouts:
     footer:
       instagram: "Instagram Feed"
@@ -34,6 +47,12 @@ en:
       about: "About"
       introduce: "Introduce"
       contact: "Contact"
+      name: "Sample Woman Top"
+      size: "Size:"
+      price: "Price:"
+      settings: "Settings"
+      log_out: "Log out"
+      log_in: "Log in"
   static_pages:
     home:
       food: "Food"
@@ -51,8 +70,41 @@ en:
       message1: "Account not activated."
       message2: "Check your email for the activation link."
   flash:
-    invalid: "Invalid activation link"
+    invalid: "Invalid email/password combination"
+    log_in: "Please log in."
+    destroy: "User deleted"
+    not_found: "not found user!"
+    update: "Profile updated"
   controller:
     users:
       welcome: "Welcome"
       empty: "Empty"
+  shared:
+    error_messages:
+      contains: "The form contains "
+      errors: " error"
+  users:
+     edit:
+      title: "Edit user"
+      introduce: "Update your profile"
+      confirm: "Confirmation"
+      save: "Save changes"
+  common:
+    admin:
+      body:
+        title: "Admin"
+        users: "Users"
+        list_user: "List Users"
+        add_user: "Add Users"
+        cate: "Category"
+        list_cate: "List Category"
+        add_cate: "Add Category"
+        product: "Products"
+        list_product: "List Products"
+        add_product: "Add Products"
+        order: "Order"
+      header:
+        title: "Food & Drink"
+        user: "Admin"
+        edit: "Edit"
+        log_out: "Log out"
