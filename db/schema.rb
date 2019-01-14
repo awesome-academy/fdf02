@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20190104055626) do
 
   create_table "images", force: :cascade do |t|
     t.integer "product_id"
-    t.string "url"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_images_on_product_id"
@@ -73,19 +73,20 @@ ActiveRecord::Schema.define(version: 20190104055626) do
   end
 
   create_table "suggests", force: :cascade do |t|
+    t.integer "user_id"
     t.string "content"
-    t.string "status"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_suggests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.string "address"
     t.string "phone"
-    t.integer "role"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

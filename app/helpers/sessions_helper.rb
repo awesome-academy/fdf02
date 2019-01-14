@@ -22,4 +22,19 @@ module SessionsHelper
       @current_user ||= User.find_by id: session[:user_id] if session[:user_id]
     end
   end
+
+  def check_login user, params
+    if user &.authenticate(params[:session][:password])
+      log_in user
+      flash.now[:success] = I18n.t "flash.login_success"
+      if current_user.admin?
+        redirect_to(admin_root_path)
+      else
+        redirect_to user
+      end
+    else
+      flash.now[:danger] = I18n.t "flash.invalid"
+      render :new
+    end
+  end
 end

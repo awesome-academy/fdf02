@@ -9,8 +9,12 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users
     namespace :admin do
-      root to: "categories#index"
+      root to: "users#index"
+      get "/listcates", to: "categories#index"
+      get "/listproducts", to: "products#index"
       resources :categories
+      resources :users
+      resources :products
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

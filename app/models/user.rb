@@ -19,9 +19,7 @@ class User < ApplicationRecord
     length: {minimum: Settings[:users][:password][:min_length]}
   validates :phone, presence: true
 
-  def forget
-    update_attribute :remember_digest, nil
-  end
+  scope :order_by_name, ->{order name: :ASC}
 
   def authenticated? attribute, token
     digest = send("#{attribute}_digest")
