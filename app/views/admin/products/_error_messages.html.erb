@@ -1,0 +1,12 @@
+<% if @product.errors.any? %>
+  <div class="error_explanation">
+    <div class="alert alert-danger">
+      <%= t "shared.error_messages.contains" %> <%= pluralize(@product.errors.count, t("shared.error_messages.errors")) %>.
+    </div>
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -5,6 +5,7 @@
     <%= form_for [:admin, @product] do |f| %>
       <%= render "shared/error_messages" %>
 
+
       <%= f.label :name, t("admin.products.edit.name")  %>
       <%= f.text_field :name, class: "form-control" %>
 
@@ -16,6 +17,7 @@
 
       <%= f.label :url, t("admin.products.edit.url") %>
       <%= f.file_field :picture, class: "form-control" %>
+
 
       <%= f.submit t("admin.products.edit.button"), class: "btn btn-primary" %>
     <% end %>

@@ -19,7 +19,7 @@ class User < ApplicationRecord
     length: {minimum: Settings[:users][:password][:min_length]}
   validates :phone, presence: true
 
-  scope :order_by_name, ->{order(name: :ASC)}
+  scope :order_by_name, ->{order name: :ASC}
 
   def authenticated? attribute, token
     digest = send("#{attribute}_digest")

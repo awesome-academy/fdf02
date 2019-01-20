@@ -103,4 +103,3 @@ end
 Order.all.each do |order|
   order.order_details.create! product_id: rand(Product.count) + 1, quantity: rand(20) + 1
 end
-

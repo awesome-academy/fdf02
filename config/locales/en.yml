@@ -137,7 +137,6 @@ en:
     cart_add_item: "Successfully add to Cart."
     suggest_notfound: "Not found your suggest."
     order_delete_success: "Successfully delete order"
-
   controller:
     users:
       welcome: "Welcome"

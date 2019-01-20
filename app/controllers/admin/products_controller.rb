@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   layout "admin"
-
+  
   before_action :load_product, except: [:index, :new, :create]
 
   def index

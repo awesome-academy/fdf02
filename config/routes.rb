@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     delete "/cart_delete_item", to: "carts#cart_delete_item"
     put "/carts_update", to: "carts#cart_update_item"
     resources :order_details
-
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
