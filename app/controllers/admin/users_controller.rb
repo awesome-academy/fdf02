@@ -1,7 +1,8 @@
 class Admin::UsersController < ApplicationController
   layout "admin"
 
-  before_action :load_user, except: [:index, :new, :create]
+  before_action :load_user, except: [:index, :new, :create, :destroy]
+  before_action :load_user_delete, only: :destroy
 
   def index
     @users = User.order_by_name.paginate page: params[:page],
@@ -44,15 +45,30 @@ class Admin::UsersController < ApplicationController
 
   private
 
+  def load_user_delete
+    @user = User.find_by id: params[:id]
+    if @user
+      if @user.user?
+        return @user
+      else
+        flash[:danger] = t "flash.user_delete_fail"
+        redirect_to admin_users_path
+      end
+    else
+      flash[:danger] = t "flash.not_found"
+      redirect_to admin_users_path
+    end
+  end
+
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
     flash[:danger] = t "flash.not_found"
-    redirect_to admin_users_path
+    redirect_to root_path
   end
 
   def user_params
     params.require(:user).permit :name, :email, :password, :phone, :address,
-      :password_confirmation, :role
+      :password_confirmation
   end
 end

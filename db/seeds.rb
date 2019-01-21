@@ -83,13 +83,13 @@ end
                 customer_phone: phone)
 end
 
-products = Product.select_cate_product 1
+products = Product.select_cate_product(1)
 products.each { |product| product.images.create!(picture: "trasua.jpg") }
 
-products = Product.select_cate_product 2
+products = Product.select_cate_product(2)
 products.each { |product| product.images.create!(picture: "caphe.jpeg") }
 
-products = Product.select_cate_product 3
+products = Product.select_cate_product(3)
 products.each { |product| product.images.create!(picture: "banh.png") }
 
 users = User.all
@@ -98,8 +98,4 @@ users.each do |user|
   for n in 1..10
     user.suggests.create!(content: "This my suggest #{n}",status: 0)
   end
-end
-
-Order.all.each do |order|
-  order.order_details.create! product_id: rand(Product.count) + 1, quantity: rand(20) + 1
 end

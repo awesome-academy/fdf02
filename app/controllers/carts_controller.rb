@@ -1,6 +1,17 @@
 class CartsController < ApplicationController
+  before_action :load_cart, only: [:show, :checkout]
+
   def create
     check_current_cart params[:product_id]
+    if session[:cart]
+      @cart_products = Product.select_id_product session[:cart].keys
+      if @cart_products
+        respond_to do |format|
+          format.html{return @cart_products}
+          format.js
+        end
+      end
+    end
   end
 
   def check_current_cart product_id
@@ -16,23 +27,22 @@ class CartsController < ApplicationController
     end
   end
 
-  def show
+  def show; end
+
+  def checkout; end
+
+  def cart_update_item
+    session[:cart][params[:product_id]] = params[:quantity].to_i
     if session[:cart]
       @cart_products = Product.select_id_product session[:cart].keys
       if @cart_products
         respond_to do |format|
           format.html{return @cart_products}
+          format.json { render json: @cart_products.to_json }
           format.js
         end
       end
     end
-    flash[:danger] = t "flash.cart_notfound"
-    redirect_to root_path
-  end
-
-  def cart_update_item
-    session[:cart][params[:product_id]] = params[:quantity].to_i
-    redirect_to carts_show_path
   end
 
   def cart_delete_item
@@ -50,5 +60,21 @@ class CartsController < ApplicationController
 
   def destroy
     session.delete(:cart)
+  end
+
+  private
+
+  def load_cart
+    if session[:cart]
+      @cart_products = Product.select_id_product session[:cart].keys
+      if @cart_products
+        respond_to do |format|
+          format.html{return @cart_products}
+          format.js
+        end
+      end
+    end
+    flash[:danger] = t "flash.cart_notfound"
+    redirect_to root_path
   end
 end

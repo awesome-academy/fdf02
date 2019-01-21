@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   layout "admin"
-  
+
   before_action :load_product, except: [:index, :new, :create]
 
   def index
@@ -10,6 +10,7 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @image = @product.images.build
   end
 
   def create; end
@@ -27,7 +28,7 @@ class Admin::ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
-      flash[:success] = t "flash.cate_delete_success"
+      flash[:success] = t "flash.product_delete_success"
     else
       flash[:danger] = t "flash.destroy_fail"
     end
@@ -37,13 +38,22 @@ class Admin::ProductsController < ApplicationController
   private
 
   def load_product
-    @product = Product.includes(:images).find_by id: params[:id]
-    return if @product
-    flash[:danger] = t "flash.not_found_cate"
-    redirect_to admin_listproducts_path
+    @product = Product.find_by id: params[:id]
+    @check_product = OrderDetail.find_by product_id: @product[:id]
+    if @check_product
+      if @check_product.order.finished?
+        return @product
+      else
+        flash[:danger] = t "flash.product_delete_fail"
+        redirect_to admin_listproducts_path
+      end
+    elsif @check_product.nil?
+      return @product
+    end
   end
 
   def product_params
-    params.require(:product).permit :name, :price, :description
+    params.require(:product).permit :name, :price, :description,
+      images_attributes: [:id, :product_id, :picture]
   end
 end

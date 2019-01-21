@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-8 center_div">
+    <h1><%= t "admin.orders.show.title" %></h1>
     <div class="history_wrapper">
       <div class="history_header">
         <div class="history_header_product">
@@ -17,7 +18,7 @@
       </div>
       <div class="history_body">
         <div class="history_list">
-          <% order.order_details.each do |order_detail| %>
+          <% @order.order_details.each do |order_detail| %>
             <div class="history_item_name">
              <span class="item_name"> <%= Product.find(order_detail.product_id).name %> </span>
             </div>
@@ -38,16 +39,15 @@
             </div>
           <% end %>
             <div class="history_list_footer">
-              <span class="label label-default"><%= t "orders.index.order" %> <%= order.id %></span>
-              <% if order.incoming? %>
-                <span class="label label-info"><%= order.status %></span>
-              <% elsif order.in_progress?%>
-                <span class="label label-warning"><%= order.status %></span>
-              <% elsif order.finished?%>
-                <span class="label label-success"><%= order.status %></span>
+              <span class="label label-default"><%= t "orders.index.order" %> <%= @order.id %></span>
+              <% if @order.incoming? %>
+                <span class="label label-info"><%= @order.status %></span>
+              <% elsif @order.in_progress?%>
+                <span class="label label-warning"><%= @order.status %></span>
+              <% elsif @order.finished?%>
+                <span class="label label-success"><%= @order.status %></span>
               <% end %>
-              <span class="histroy_total mr_20"><%= link_to t("carts.index.cancel"), order_path(id: order.id), method: :DELETE, data: { confirm: t("orders.index.confirm") }, class: "label label-danger" %></span>
-              <span class="histroy_total"><b><%= t "orders.index.total" %></b><%= order.total %></span>
+              <span class="histroy_total"><b><%= t "orders.index.total" %></b><%= @order.total %></span>
             </div>
         </div>
       </div>

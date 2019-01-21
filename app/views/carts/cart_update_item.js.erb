@@ -1,0 +1,6 @@
+  $('.btnCartProduct').bind('ajax:success', function(e) {
+    $(".cart_list").html("<%= escape_javascript(render partial: 'cart_product', collection: @cart_products) %>");
+    $(".cart_total").html("<%= escape_javascript(render 'carts/total')%>");
+    $(".cart_mini_top").html("<%= escape_javascript(render 'carts/cart_mini', cart_products: @cart_products) %>");
+  });
+

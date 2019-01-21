@@ -1,0 +1,28 @@
+<div class="well">
+  <h3 align="center"><%= t "products.filter.title" %></h3>
+  <form class="form-horizontal" method="get" id="search_form" action="/products" >
+    <div class="form-group">
+      <label for="location1" class="control-label"><%= t "products.filter.category" %></label>
+      <select class="form-control" name="sltCategory" id="location1">
+        <option value="3"><%= t "products.filter.cake" %></option>
+        <option value="1"><%= t "products.filter.tea" %></option>
+        <option value="2"><%= t "products.filter.coffee" %></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="pricefrom" class="control-label"><%= t "products.filter.min_price" %></label>
+      <div class="input-group">
+        <div class="input-group-addon" id="basic-addon1">$</div>
+        <input type="text" class="form-control" name="pricefrom" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="priceto" class="control-label"><%= t "products.filter.max_price" %></label>
+      <div class="input-group">
+        <div class="input-group-addon" id="basic-addon2">$</div>
+        <input type="text" class="form-control" name="priceto" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <p class="text-center"><button class="btn btn-danger glyphicon glyphicon-search" type="submit"></button></p>
+  </form>
+</div>

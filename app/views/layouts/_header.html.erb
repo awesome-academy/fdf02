@@ -34,29 +34,22 @@
   <div class="header-body">
     <div class="container beta-relative">
       <div class="pull-left">
-        <%= link_to image_tag("logo-cake.png", alt: "logo", :class => "style_image"), "#" %>
+        <%= link_to image_tag("logo-cake.png", alt: "logo", id: "logo"), "#" %>
       </div>
       <div class="pull-right beta-components space-left ov">
         <div class="space10">&nbsp;</div>
+        <!-- cart -->
         <div class="beta-comp">
-         <div class="dropdown pt15">
-          <a href= "#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> Items<span class="caret"></span></a>
-          <ul id="cart_mini" class="dropdown-menu dropdown-cart" role="menu">
+         <div class="cart_mini_top dropdown pt15">
             <% if @cart_products %>
-              <% @cart_products.each do |cart_product|  %>
-                <%= render partial: "carts/cart_mini", locals: { cart_product: cart_product } %>
-              <%end%>
-          <% end %>
-            <li><%= link_to "View Cart", carts_show_path, class: "text-center" %></li>
-           <li class="divider"></li>
-          </ul>
+              <%= render "carts/cart_mini", cart_products: @cart_products %>
+            <% end %>
         </div>
-
-          <!-- .cart -->
-        </div>
+      </div>
+      <!-- .end- cart -->
         <div class="beta-comp">
-          <form role="search" method="get" id="searchform" action="/">
-            <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+          <form role="search" method="get" id="searchform" action="/products">
+            <input type="text" value="" name="name_product" id="s" placeholder="Nhập từ khóa..." />
             <button class="fa fa-search" type="submit" id="searchsubmit"></button>
           </form>
         </div>
@@ -71,9 +64,9 @@
       <nav class="main-menu">
         <ul class="l-inline ov">
           <li><%= link_to t("layouts.header.home"), root_path %></li>
-          <li><a href="#"><%= t "layouts.header.product" %></a></li>
-          <li><a href="#"><%= t "layouts.header.introduce" %></a></li>
-          <li><a href="#"><%= t "layouts.header.contact" %></a></li>
+          <li><a href="/products"><%= t "layouts.header.product" %></a></li>
+          <li><a href="/about"><%= t "layouts.header.introduce" %></a></li>
+          <li><a href="/new_suggests"><%= t "layouts.header.suggest" %></a></li>
         </ul>
         <div class="clearfix"></div>
       </nav>

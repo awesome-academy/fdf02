@@ -1,0 +1,12 @@
+<tr>
+  <td><a href=<%= root_path %> class="btn btn-warning"><i class="fa fa-angle-left"></i>
+    <%= t "carts.index.continue" %></a>
+  </td>
+  <td colspan="2" class="hidden-xs"></td>
+  <td colspan="1" class="hidden-xs"></td>
+  <td class="hidden-xs text-center"><%= t "carts.index.total"%><strong><%= total_price_order = total_order %></strong>
+  </td>
+  <% if(quantity_in_carts > 0) %>
+  <td><%= link_to t("carts.index.next"), checkout_path, class: "btn btn-success" %></td>
+  <% end %>
+</tr>

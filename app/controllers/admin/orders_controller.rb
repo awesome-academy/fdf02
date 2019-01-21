@@ -1,16 +1,19 @@
 class Admin::OrdersController < ApplicationController
   layout "admin"
-  before_action :load_order, except: [:index, :new, :create]
+  before_action :load_order_show, only: [:show, :destroy]
+  before_action :load_order_update, only: :update
 
   def index
-    @orders = Order.paginate page: params[:page],
+    @orders = Order.newest.paginate page: params[:page],
       per_page: Settings.cates.paginate.per_page
   end
 
   def edit; end
 
+  def show; end
+
   def update
-    if @user.orders.update_attributes order_params
+    if @order.update_attributes id: @order.id, status: @order.status
       flash[:success] = t "flash.update_success"
     else
       flash[:danger] = t "flash.updated_fail"
@@ -29,14 +32,26 @@ class Admin::OrdersController < ApplicationController
 
   private
 
-  def load_order
+  def load_order_update
+    @order = Order.find_by id: params[:id]
+    if @order
+      if @order.incoming?
+        @order.status = 1
+      elsif @order.in_progress?
+        @order.status = 2
+      elsif @order.finished?
+        @order.status = 2
+      end
+    else
+      flash[:danger] = t "flash.not_found"
+      redirect_to admin_users_path
+    end
+  end
+
+  def load_order_show
     @order = Order.find_by id: params[:id]
     return if @order
     flash[:danger] = t "flash.not_found"
     redirect_to admin_users_path
-  end
-
-  def order_params
-    params.require(:order).permit :status
   end
 end

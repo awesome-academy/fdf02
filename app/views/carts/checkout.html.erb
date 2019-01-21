@@ -1,0 +1,46 @@
+<% provide(:title, "checkout") %>
+<div id="content">
+  <form action="#" method="post" class="beta-form-checkout">
+    <h1><%= t "carts.checkout.order" %></h4>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="your-order">
+          <div class="your-order-head center"><h5><%= t "carts.checkout.order_detail" %></h5></div>
+          <div class="your-order-body" style="padding: 0px 10px">
+            <div class="your-order-item">
+              <div>
+                <!--  one item   -->
+                  <%= render "carts/checkout_item", cart_products: @cart_products%>
+                <!-- end one item -->
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="your-order-item">
+              <div class="pull-left"><p class="your-order-f18"><%= t "carts.checkout.total" %></p></div>
+              <div class="pull-right"><h5 class="color-black"><%= total_price_order = total_order %></h5></div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="your-order-head"><h5><%= t "carts.checkout.payment" %></h5></div>
+
+          <div class="your-order-body">
+            <ul class="payment_methods methods">
+              <li class="payment_method_bacs">
+                <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="COD" checked="checked" data-order_button_text="">
+                <label for="payment_method_bacs"><%= t "carts.checkout.method" %></label>
+                <div class="payment_box payment_method_bacs" style="display: block;">
+                  <%= t "carts.checkout.delivery" %>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="text-center">
+            <a class="beta-btn primary" href="/carts_show"><i class="fa fa-chevron-left"></i>Back</a>
+             <%= link_to t("carts.index.checkout"), order_details_path(total: total_price_order), method: :POST,class: "beta-btn primary" %>
+          </div>
+        </div> <!-- .your-order -->
+      </div>
+    </div>
+  </form>
+</div> <!-- #content -->

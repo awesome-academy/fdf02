@@ -1,8 +1,8 @@
 module CartsHelper
   def quantity_in_carts
     quantity = 0
-    session[:cart].each do |value|
-      quantity += value
+    session[:cart].each do |index, value|
+      quantity += 1
     end
     quantity
   end

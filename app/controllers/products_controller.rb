@@ -1,14 +1,11 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: :show
+
   def index
     @products = Product.includes(:images).paginate page: params[:page],
-      per_page: Settings.products.paginate_default
-    @coffees = Product.includes(:images).select_cate_product(2).paginate page: params[:page],
-      per_page: Settings.products.paginate_default
-    @cakes = Product.includes(:images).select_cate_product(3).paginate page: params[:page],
-      per_page: Settings.products.paginate_default
-    @teas = Product.includes(:images).select_cate_product(1).paginate page: params[:page],
-      per_page: Settings.products.paginate_default
+      per_page: Settings.products.paginate.per_page
+    @searchs = Product.search(search_params) if search_params
+    @searchs = Product.starts_with(params[:name_product]) if params[:name_product]
     if session[:cart]
       @cart_products = Product.select_id_product session[:cart].keys
       return if @cart_products
@@ -31,5 +28,9 @@ class ProductsController < ApplicationController
     return if @product
     flash[:danger] = t "flash.not_found"
     redirect_to root_path
+  end
+
+  def search_params
+    params.permit :sltCategory, :priceto, :pricefrom
   end
 end

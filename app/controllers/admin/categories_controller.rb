@@ -48,9 +48,13 @@ class Admin::CategoriesController < ApplicationController
 
   def load_category
     @category = Category.find_by id: params[:id]
-    return if @category
-    flash[:danger] = t "flash.not_found_cate"
-    redirect_to admin_listcates_path
+    @product = Product.get_cate
+    if @product.select_cate_product(@category)
+      flash[:danger] = t "flash.cate_delete_fail"
+      redirect_to admin_listcates_path
+    elsif @product.select_cate_product(@category).nil?
+      return @category
+    end
   end
 
   def category_params

@@ -21,17 +21,8 @@
       <%= f.password_field :password, class: "form-control" %>
       <%= f.label :password_confirmation, t("admin.users.edit.password_confirm") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
-      <%= f.label :role, t("admin.users.edit.role") %>
-      <div class="radio">
-        <%= f.radio_button :role, t("admin.users.edit.admin"), checked: @user.admin? %>
-        <label><%= t "admin.users.edit.admin" %></label>
-      </div>
-      <div class="radio">
-        <%= f.radio_button :role, t("admin.users.edit.user"), checked: @user.user? %>
-        <label><%= t "admin.users.edit.user" %></label>
-      </div>
 
-      <%= f.submit t("admin.users.edit.button"), class: "btn btn-primary" %>
+    <%= f.submit t("admin.users.edit.button"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
