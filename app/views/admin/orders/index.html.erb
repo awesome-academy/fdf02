@@ -1,0 +1,17 @@
+<% provide(:title, t("admin.orders.index.title")) %>
+<h1><%= t "admin.orders.index.title" %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "admin.orders.index.id" %></th>
+      <th scope="col"><%= t "admin.orders.index.customer" %></th>
+      <th scope="col"><%= t "admin.orders.index.status" %></th>
+      <th scope="col"><%= t "admin.orders.index.total" %></th>
+      <th scope="col"><%= t "admin.orders.index.actions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @orders.newest %>
+  </tbody>
+</table>
+<%= will_paginate %>

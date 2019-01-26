@@ -1,7 +1,7 @@
 <tr>
   <td><%= product.name %></td>
   <td><%= product.price %></td>
-  <td><%= image_tag product.images[0].picture, alt: product.name, :class => "style_image" %></td>
+  <td><%= image_tag product.images[0].picture.url, alt: product.name, class: "img-responsive image_in_admin" %></td>
   <td><i class="fa fa-edit"></i><%= link_to t("admin.products.index.edit"), edit_admin_product_path(product) %></td>
   <td><i class="fa fa-window-close"></i>
     <%= link_to t("admin.products.index.delete"), [:admin, product], method: :DELETE,

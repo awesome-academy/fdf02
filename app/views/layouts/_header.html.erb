@@ -16,7 +16,8 @@
           </a>
             <ul class="dropdown-menu">
               <li><%= link_to t("layouts.header.profile"), current_user %></li>
-              <li><%= link_to t("layouts.header.settings"), edit_user_path(current_user) %></li>
+              <li><%= link_to t("layouts.header.history"), orders_show_path %></li>
+              <li><%= link_to t("layouts.header.suggest"), suggests_show_path %></li>
               <li class="divider"></li>
             </ul>
          </li>
@@ -33,42 +34,24 @@
   <div class="header-body">
     <div class="container beta-relative">
       <div class="pull-left">
-        <%= link_to image_tag("logo-cake.png", alt: "logo", :class => "style_image"), "#" %>
+        <%= link_to image_tag("logo-cake.png", alt: "logo", id: "logo"), "#" %>
       </div>
       <div class="pull-right beta-components space-left ov">
         <div class="space10">&nbsp;</div>
+        <!-- cart -->
         <div class="beta-comp">
-          <form role="search" method="get" id="searchform" action="/">
-            <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+         <div class="cart_mini_top dropdown pt15">
+            <% if @cart_products %>
+              <%= render "carts/cart_mini", cart_products: @cart_products %>
+            <% end %>
+        </div>
+      </div>
+      <!-- .end- cart -->
+        <div class="beta-comp">
+          <form role="search" method="get" id="searchform" action="/products">
+            <input type="text" value="" name="name_product" id="s" placeholder="Nhập từ khóa..." />
             <button class="fa fa-search" type="submit" id="searchsubmit"></button>
           </form>
-        </div>
-
-        <div class="beta-comp">
-          <div class="cart">
-            <div class="beta-select"><i class="fa fa-shopping-cart"></i><%= t "layouts.header.cart" %><i class="fa fa-chevron-down"></i></div>
-            <div class="beta-dropdown cart-body">
-              <div class="cart-item">
-                <div class="media">
-                  <%= link_to image_tag("banh.png", alt: "Rails logo"),"#" %>
-                  <div class="media-body">
-                    <span class="cart-item-title"><%= t "layouts.header.name" %></span>
-                    <span class="cart-item-options"><%= t "layouts.header.size" %></span>
-                    <span class="cart-item-amount"><%= t "layouts.header.price" %></span>
-                  </div>
-                </div>
-              </div>
-              <div class="cart-caption">
-                <div class="cart-total text-right"><%= t "layouts.header.total" %><span class="cart-total-value">$34.55</span></div>
-                <div class="clearfix"></div>
-
-                <div class="center">
-                  <div class="space10">&nbsp;</div>
-                  <a href="checkout.html" class="beta-btn primary text-center"><%= t "layouts.header.order" %><i class="fa fa-chevron-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div> <!-- .cart -->
         </div>
       </div>
       <div class="clearfix"></div>
@@ -81,9 +64,9 @@
       <nav class="main-menu">
         <ul class="l-inline ov">
           <li><%= link_to t("layouts.header.home"), root_path %></li>
-          <li><a href="#"><%= t "layouts.header.product" %></a></li>
-          <li><a href="#"><%= t "layouts.header.introduce" %></a></li>
-          <li><a href="#"><%= t "layouts.header.contact" %></a></li>
+          <li><a href="/products"><%= t "layouts.header.product" %></a></li>
+          <li><a href="/about"><%= t "layouts.header.introduce" %></a></li>
+          <li><a href="/new_suggests"><%= t "layouts.header.suggest" %></a></li>
         </ul>
         <div class="clearfix"></div>
       </nav>

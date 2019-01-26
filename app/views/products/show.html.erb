@@ -1,0 +1,48 @@
+<div class="container">
+  <div id="content">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= image_tag @product.images[0].picture, alt: @product.name, class: "style_image" %>
+      </div>
+      <div class="col-sm-8">
+        <div class="single-item-body">
+          <p class="single-item-title"><%= @product.name %></p>
+          <p class="single-item-price">
+            <span><%= @product.price %></span>
+          </p>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="space20">&nbsp;</div>
+
+        <div class="single-item-desc">
+          <p><%= @product.description %></p>
+        </div>
+        <div class="space20">&nbsp;</div>
+
+        <p>Options:</p>
+        <div class="single-item-options">
+          <%= form_tag carts_path(product_id: @product.id), remote: true ,method: :POST do %>
+          <%= number_field_tag :quantity, t("products.show.one") %>
+          <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-shopping-cart"></i></button>
+          <% end %>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <div class="space40">&nbsp;</div>
+    <div class="woocommerce-tabs">
+      <ul class="tabs">
+        <li><%= t "products.show.description"%></li>
+      </ul>
+      <div class="panel">
+        <p><%= @product.description %></p>
+      </div>
+      <div class="panel" id="tab-reviews">
+        <p><%= t "products.show.review"%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="space50">&nbsp;</div>
+

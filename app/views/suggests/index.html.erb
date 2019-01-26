@@ -1,0 +1,41 @@
+<div class="container">
+    <div id="content" class="space-top-none">
+      <div class="space50">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-8">
+          <h2><%= t "suggests.index.title" %></h2>
+          <div class="space20">&nbsp;</div>
+          <p><%= t "suggests.index.content" %></p>
+          <div class="space20">&nbsp;</div>
+          <%= form_for @suggest do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <%= f.text_area :content, rows: 10, class: "form-control" %>
+            <%= f.submit t("suggests.index.button"), class: "beta-btn primary" %>
+          <%end%>
+        </div>
+        <div class="col-sm-4">
+          <h2><%= t "suggests.index.contact" %></h2>
+          <div class="space20">&nbsp;</div>
+
+          <h6 class="contact-title"><%= t "suggests.index.address" %></h6>
+          <p>
+            <%= t "static_pages.about.address_event_01" %><br />
+            <%= t "static_pages.about.address_event_02" %><br />
+            <%= t "static_pages.about.address_event_03" %>
+          </p>
+          <div class="space20">&nbsp;</div>
+          <h6 class="contact-title"><%= t "suggests.index.business" %></h6>
+          <p>
+            <%= t "suggests.index.business_content" %> <br/>
+            <a href="#"><%= t "suggests.index.business_mail" %></a>
+          </p>
+          <div class="space20">&nbsp;</div>
+          <h6 class="contact-title"><%= t "suggests.index.employment" %></h6>
+          <p>
+            <%= t "suggests.index.employment_contect" %> <br/>
+            <a href="#"><%= t "suggests.index.employment_mail" %> </a>
+          </p>
+        </div>
+      </div>
+    </div> <!-- #content -->
+  </div> <!-- .container -->

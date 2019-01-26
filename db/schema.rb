@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 20190104055626) do
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.integer "orders_id"
+    t.integer "order_id"
     t.integer "product_id"
     t.integer "unit_price"
-    t.integer "sum_price"
+    t.decimal "total_price", default: "0.0"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["orders_id"], name: "index_order_details_on_orders_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
     t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 20190104055626) do
     t.string "customer_name"
     t.string "customer_address"
     t.string "customer_phone"
-    t.string "status"
+    t.decimal "total", default: "0.0"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

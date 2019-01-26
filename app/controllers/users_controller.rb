@@ -41,16 +41,6 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
-  def destroy
-    if @user.try :destroy
-      flash[:success] = t "flash.destroy"
-      redirect_to users_path
-    else
-      flash[:danger] = t "flash.destroy_fail"
-      redirect_to users_path
-    end
-  end
-
   def destroy; end
 
   private

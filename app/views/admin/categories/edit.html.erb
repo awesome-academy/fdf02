@@ -3,7 +3,7 @@
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 center_div">
     <h1><%= t"admin.categories.edit.title" %></h1>
     <%= form_for [:admin, @category] do |f| %>
-      <%= render "admin/categories/error_messages" %>
+      <%= render "error_messages" %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>

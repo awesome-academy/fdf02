@@ -1,0 +1,20 @@
+<% provide(:title, t("carts.index.title")) %>
+<h1><%= t "carts.index.title" %></h1>
+<table id="cart" class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th class="display_50"><%= t "carts.index.product" %></th>
+      <th class="display_10"><%= t "carts.index.price" %></th>
+      <th class="display_10"><%= t "carts.index.quantity" %></th>
+      <th class="display_5"></th>
+      <th class="display_20 text-center"><%= t "carts.index.subtotal" %></th>
+      <th class="display_5"> <%= t "carts.index.action" %> </th>
+    </tr>
+  </thead>
+  <tbody class = "cart_list">
+    <%= render partial: "cart_product", collection: @cart_products %>
+  </tbody>
+  <tfoot class = "cart_total">
+    <%= render "carts/total" %>
+  </tfoot>
+</table>

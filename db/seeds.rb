@@ -23,33 +23,79 @@ User.create!(name:  "tuan",
   email = "mailer-#{n+2}example@gmail.com"
   password = "123456"
   phone = "09112132131"
+  address = "12#{n} Le Hong Phong"
   User.create!(name:  name,
               email: email,
+              address: address,
               password:              password,
               password_confirmation: password,
               phone: phone,
               role: 0)
 end
 
-40.times do |n|
-  name = Faker::Name.name
-  parent_id = n % 2
-  Category.create!(name: name, parent_id: parent_id)
-end
+Category.create!(name: "trasua", parent_id: 1)
+Category.create!(name: "caphe", parent_id: 2)
+Category.create!(name: "banh", parent_id: 3)
 
-40.times do |n|
-  name = Faker::Name.name
-  price = 50000
+10.times do |n|
+  name = "trasua #{n}"
+  price = 10000 + n
   user_id = 1
-  category_id = 2
   description = "This is product #{name}"
   Product.create!(name: name,
                   price: price,
                   description: description,
                   user_id: user_id,
-                  category_id: category_id)
+                  category_id: 1)
 end
 
-products = Product.all
+for n in 1..10
+  name = "caphe #{n}"
+  price = 50000
+  user_id = 2
+  description = "This is product #{name}"
+  Product.create!(name: name,
+                  price: price,
+                  description: description,
+                  user_id: user_id,
+                  category_id: 2)
+end
+
+for n in 1..10
+  name = "banh #{n}"
+  price = 50000
+  user_id = 3
+  description = "This is product #{name}"
+  Product.create!(name: name,
+                  price: price,
+                  description: description,
+                  user_id: user_id,
+                  category_id: 3)
+end
+
+40.times do |n|
+  name = Faker::Name.name
+  phone = "09112132131"
+  address = "12#{n} Le Hong Phong"
+  Order.create!(user_id: 1,
+                customer_name: name,
+                customer_address: address,
+                customer_phone: phone)
+end
+
+products = Product.select_cate_product(1)
+products.each { |product| product.images.create!(picture: "trasua.jpg") }
+
+products = Product.select_cate_product(2)
+products.each { |product| product.images.create!(picture: "caphe.jpeg") }
+
+products = Product.select_cate_product(3)
 products.each { |product| product.images.create!(picture: "banh.png") }
 
+users = User.all
+users.each { |user| user.orders.create!(status: 0)}
+users.each do |user|
+  for n in 1..10
+    user.suggests.create!(content: "This my suggest #{n}",status: 0)
+  end
+end

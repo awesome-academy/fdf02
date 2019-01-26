@@ -1,0 +1,20 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= User.find_by(id: order.user_id).name %></td>
+  <td>
+    <% if order.incoming? %>
+      <span class="label label-info"><%= order.status %></span>
+    <% elsif order.in_progress?%>
+      <span class="label label-warning"><%= order.status %></span>
+    <% elsif order.finished?%>
+      <span class="label label-success"><%= order.status %></span>
+    <% end %>
+  </td>
+  <td><b><%= order.total %></b></td>
+  <td>
+    <%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, [:admin, order], method: :PUT %>
+    <%= link_to "<i class='fa fa-edit'></i>".html_safe, [:admin, order] %>
+    <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, [:admin, order], method: :DELETE,
+      data: { confirm: t("admin.users.index.delete") } %>
+  </td>
+</tr>
